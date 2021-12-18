@@ -1,6 +1,7 @@
 import React from "react";
 
-function Profile({ name, about, linktoGithub }) {
+function Profile(props) {
+  const { name, about, linktoGithub } = props;
   return (
     <div>
       <h3>{name}</h3>
