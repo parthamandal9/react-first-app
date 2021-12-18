@@ -4,10 +4,13 @@ function Profile({
   name = "Dilshad",
   about = "About Dilshad",
   linktoGithub = "https://www.github.com/webformulator",
+  isSuperUser,
 }) {
   return (
     <div>
-      <h3>{name}</h3>
+      <h3>
+        {name} {isSuperUser ? "^" : ""}
+      </h3>
       <p>{about}</p>
       <a href={linktoGithub}>Github</a>
     </div>
