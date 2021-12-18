@@ -9,7 +9,7 @@ function Profile({
   return (
     <div>
       <h3>
-        {name} {isSuperUser ? "^" : ""}
+        {name} {isSuperUser && "^"}
       </h3>
       <p>{about}</p>
       <a href={linktoGithub}>Github</a>
