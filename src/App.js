@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Profile from "./components/Profile";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <Profile />
+      <div>
+        <h3>Md Dilshad Alam</h3>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+          placeat nobis iure distinctio, repellat quidem laudantium quas ab
+          inventore iste doloremque repellendus, totam accusantium commodi
+          fugit! Perferendis ipsum et, quae officia aliquid quos cumque
+          exercitationem animi eligendi sint voluptatem sunt laudantium nobis,
+          alias ratione repellat sed aliquam ex quisquam? Cupiditate.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <a href="https://www.github.com/webformulator">Github</a>
+      </div>
+      <div>
+        <h3>Partha Mandal</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+          placeat nobis iure distinctio, repellat quidem laudantium quas ab
+          inventore iste doloremque repellendus, totam accusantium commodi
+          fugit! Perferendis ipsum et, quae officia aliquid quos cumque
+          exercitationem animi eligendi sint voluptatem sunt laudantium nobis,
+          alias ratione repellat sed aliquam ex quisquam? Cupiditate.
+        </p>
+        <a href="https://www.github.com/partha">Github</a>
+      </div>
+      <div>
+        <h3>Shakil Ahmad</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+          placeat nobis iure distinctio, repellat quidem laudantium quas ab
+          inventore iste doloremque repellendus, totam accusantium commodi
+          fugit! Perferendis ipsum et, quae officia aliquid quos cumque
+          exercitationem animi eligendi sint voluptatem sunt laudantium nobis,
+          alias ratione repellat sed aliquam ex quisquam? Cupiditate.
+        </p>
+        <a href="https://www.github.com/shakil">Github</a>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
