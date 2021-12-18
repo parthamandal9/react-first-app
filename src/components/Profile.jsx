@@ -1,7 +1,10 @@
 import React from "react";
 
-function Profile(props) {
-  const { name, about, linktoGithub } = props;
+function Profile({
+  name = "Dilshad",
+  about = "About Dilshad",
+  linktoGithub = "https://www.github.com/webformulator",
+}) {
   return (
     <div>
       <h3>{name}</h3>
