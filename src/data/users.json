@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Partha Mandal",
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam placeat  nobis iure distinctio, epellat quidem laudantium quas ab inventore iste  doloremque repellendus, totam accusantium commodi fugit! Perferendis  ipsum et, quae officia aliquid quos cumque exercitationem animi eligendi  sint voluptatem sunt laudantium nobis, alias ratione repellat sed  aliquam ex quisquam? Cupiditate.",
+    "isSuperUser": true,
+    "linktoGithub": "https://www.github.com/parthamandal9"
+  },
+  {
+    "name": "Md. Dilshad Alam",
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam placeat  nobis iure distinctio, epellat quidem laudantium quas ab inventore iste  doloremque repellendus, totam accusantium commodi fugit! Perferendis  ipsum et, quae officia aliquid quos cumque exercitationem animi eligendi  sint voluptatem sunt laudantium nobis, alias ratione repellat sed  aliquam ex quisquam? Cupiditate.",
+    "isSuperUser": false,
+    "linktoGithub": "https://www.github.com/webformulator"
+  },
+  {
+    "name": "Shakil Ahmad",
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam placeat  nobis iure distinctio, epellat quidem laudantium quas ab inventore iste  doloremque repellendus, totam accusantium commodi fugit! Perferendis  ipsum et, quae officia aliquid quos cumque exercitationem animi eligendi  sint voluptatem sunt laudantium nobis, alias ratione repellat sed  aliquam ex quisquam? Cupiditate.",
+    "isSuperUser": true,
+    "linktoGithub": "https://www.github.com/belal8804"
+  }
+]
