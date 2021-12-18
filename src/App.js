@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import users from "./data/users.json";
 import Profile from "./components/Profile";
 
 const App = () => {
   return (
-    <div>
+    <Fragment>
+      <h1>Users</h1>
       {users.map(({ name, about, linktoGithub, isSuperUser }) => (
         <Profile
           name={name}
@@ -13,7 +14,8 @@ const App = () => {
           isSuperUser={isSuperUser}
         />
       ))}
-    </div>
+      <small>End of List</small>
+    </Fragment>
   );
 };
 
