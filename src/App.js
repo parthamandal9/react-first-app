@@ -5,6 +5,11 @@ const App = () => {
   return (
     <div>
       <Profile />
+      <Profile />
+      <Profile />
+      <Profile />
+      <Profile />
+      <Profile />
       <div>
         <h3>Md Dilshad Alam</h3>
         <p>
