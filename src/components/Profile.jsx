@@ -1,9 +1,6 @@
 import React from "react";
 
-function Profile(props) {
-  const name = props.name;
-  const linktoGithub = props.linktoGithub;
-  const about = props.about;
+function Profile({ name, about, linktoGithub }) {
   return (
     <div>
       <h3>{name}</h3>
