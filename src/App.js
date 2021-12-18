@@ -3,9 +3,13 @@ import users from "./data/users.json";
 import Profile from "./components/Profile";
 
 const App = () => {
+  const headingStyle = {
+    color: "red",
+  };
+
   return (
     <>
-      <h1>Users</h1>
+      <h1 style={headingStyle}>Users</h1>
       {users.map(({ name, about, linktoGithub, isSuperUser }) => (
         <Profile
           name={name}
