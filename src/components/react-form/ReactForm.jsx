@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CustomInput from "../custom-input/CustomInput";
 
 const ReactForm = () => {
   const [formData, setFormData] = useState({
@@ -58,13 +59,11 @@ const ReactForm = () => {
   return (
     <>
       <h1>React Form Inputs</h1>
-      <input
-        type="text"
+      <CustomInput
         name="name"
         value={formData.name}
-        onChange={(event) => handleChange(event)}
+        handleChange={handleChange}
       />
-      <p>Name : {formData.name}</p>
       <input
         type="email"
         name="email"
