@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 const ReactForm = () => {
   const [formData, setFormData] = useState({});
-  const [name, setName] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ [e.target.name]: e.target.value });
+  };
 
   return (
     <>
@@ -10,9 +13,9 @@ const ReactForm = () => {
       <input
         type="text"
         name="name"
-        onChange={(event) => setName(event.target.value)}
+        onChange={(event) => handleChange(event)}
       />
-      <p>Name : {name}</p>
+      <p>Name : {formData.name}</p>
     </>
   );
 };
