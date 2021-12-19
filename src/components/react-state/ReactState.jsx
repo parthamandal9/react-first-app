@@ -3,7 +3,7 @@ import React from "react";
 class ReactState extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "Dilshad" };
+    this.state = { data: ["Dilshad", "Partha", "Shakil"] };
     this.changeState = this.changeState.bind(this);
   }
   changeState() {
@@ -13,7 +13,11 @@ class ReactState extends React.Component {
     return (
       <>
         <h1>React State</h1>
-        <p onClick={this.changeState}>Name : {this.state.name}</p>
+        <ul>
+          {this.state.data.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
       </>
     );
   }
