@@ -4,7 +4,10 @@ const ReactForm = () => {
   const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
-    setFormData({ [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -16,6 +19,12 @@ const ReactForm = () => {
         onChange={(event) => handleChange(event)}
       />
       <p>Name : {formData.name}</p>
+      <input
+        type="email"
+        name="email"
+        onChange={(event) => handleChange(event)}
+      />
+      <p>Email : {formData.email}</p>
     </>
   );
 };
