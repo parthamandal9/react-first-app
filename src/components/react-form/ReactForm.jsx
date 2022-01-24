@@ -1,78 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import CustomInput from "../custom-input/CustomInput";
 import "./ReactForm.css";
 
 const ReactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    address: "",
-    gender: "",
-    education: [],
-    country: "",
-    profilePic: null,
-  });
   const [theme, setTheme] = useState();
+  const [page, setPage] = useState(1);
+  const [orderBy, setOrderBy] = useState("id");
+  const [orderManner, setOrderManner] = useState("asc");
+  const [limit, setLimit] = useState(10);
 
   useEffect(() => {
-    const date = new Date();
-    const hours = date.getHours();
-    if (hours >= 21 || hours <= 4) setTheme("dark");
-    else setTheme("light");
-  }, [formData]);
+    console.log("useEffect Executed");
+    console.log(
+      `API Call to https://demo.com/api/product/${page}?limit=${limit}&order_by=${orderBy}&order_manner=${orderManner}`
+    );
+  }, [page, orderBy, orderManner, limit]);
 
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleEducation = (e) => {
-    let educ = formData.education;
-    const index = educ.indexOf(e.target.value);
-    if (index === -1)
-      setFormData({
-        ...formData,
-        education: [...educ, e.target.value],
-      });
-    else {
-      educ = educ.filter((item) => educ.indexOf(item) !== index);
-      setFormData({
-        ...formData,
-        education: educ,
-      });
+  const handleChange = (e, prop) => {
+    switch (prop) {
+      case "limit":
+        setLimit(e.target.value);
+        break;
+      case "orderBy":
+        setOrderBy(e.target.value);
+        break;
+      case "orderManner":
+        setOrderManner(e.target.value);
+        break;
+      case "page":
+        setPage(e);
+        break;
+      default:
+        console.log("Maa Chuda");
     }
-  };
-
-  const handleFile = (e) => {
-    setFormData({
-      ...formData,
-      profilePic: e.target.files[0],
-    });
   };
 
   const changeTheme = (theme) => {
     setTheme(theme);
   };
-
-  const handleSubmit = () => {
-    console.log(formData);
-    setFormData({
-      name: "",
-      email: "",
-      address: "",
-      gender: "",
-      country: "",
-      education: [],
-      profilePic: null,
-    });
-    navigate("/");
-  };
-
   return (
     <div className={theme === "dark" ? "dark" : "light"}>
       Theme :{" "}
@@ -94,91 +58,57 @@ const ReactForm = () => {
         onChange={() => changeTheme("light")}
       />{" "}
       <label htmlFor="light">Light</label>
-      <h1>React Form Inputs</h1>
-      <CustomInput
-        name="name"
-        value={formData.name}
-        handleChange={handleChange}
-      />
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={(event) => handleChange(event)}
-      />
-      <p>Email : {formData.email}</p>
-      <textarea
-        name="address"
-        value={formData.address}
-        onChange={(event) => handleChange(event)}
-      ></textarea>
-      <p>Address : {formData.address}</p>
-      <input
-        type="radio"
-        name="gender"
-        value="Male"
-        checked={formData.gender === "Male"}
-        onChange={(event) => handleChange(event)}
-      />
-      <input
-        type="radio"
-        name="gender"
-        value="Female"
-        checked={formData.gender === "Female"}
-        onChange={(event) => handleChange(event)}
-      />
-      <input
-        type="radio"
-        name="gender"
-        value="Other"
-        checked={formData.gender === "Other"}
-        onChange={(event) => handleChange(event)}
-      />
-      <p>Gender : {formData.gender}</p>
-      <input
-        type="checkbox"
-        checked={formData.education.includes("Metric")}
-        name="education"
-        value="Metric"
-        onChange={(event) => handleEducation(event)}
-      />
-      <input
-        type="checkbox"
-        name="education"
-        checked={formData.education.includes("Intermediate")}
-        value="Intermediate"
-        onChange={(event) => handleEducation(event)}
-      />
-      <input
-        type="checkbox"
-        name="education"
-        checked={formData.education.includes("Graduate")}
-        value="Graduate"
-        onChange={(event) => handleEducation(event)}
-      />
-      <input
-        type="checkbox"
-        name="education"
-        checked={formData.education.includes("Master")}
-        value="Master"
-        onChange={(event) => handleEducation(event)}
-      />
-      <p>Education : {formData.education.map((item) => `${item} ,`)}</p>
+      <h1>React Pagination</h1>
       <select
-        onChange={(event) => handleChange(event)}
-        name="country"
-        value={formData.country}
+        onChange={(event) => handleChange(event, "limit")}
+        name="limit"
+        value={limit}
       >
-        <option value="">Select country</option>
-        <option value="India">India</option>
-        <option value="USA">USA</option>
-        <option value="UK">UK</option>
-        <option value="UAE">UAE</option>
+        <option value="">Select Limit</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
       </select>
-      <p>Country : {formData.country}</p>
-      <input type="file" name="profilePic" onChange={handleFile} />
-      <button onClick={handleSubmit}>Submit</button>
-      <Link to="/">Back</Link>
+      <select
+        onChange={(event) => handleChange(event, "orderBy")}
+        name="orderBy"
+        value={orderBy}
+      >
+        <option value="">Select Order By</option>
+        <option value="id">Id</option>
+        <option value="name">Name</option>
+      </select>
+      <select
+        onChange={(event) => handleChange(event, "orderManner")}
+        name="orderManner"
+        value={orderManner}
+      >
+        <option value="">Select Order Manner</option>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+      <br />
+      <br />
+      <br />
+      <div>
+        {[1, 2, 3, 4, 5].map((item) => (
+          <span
+            style={{
+              border: "1px solid red",
+              cursor: "pointer",
+              color: "red",
+              margin: "2px",
+              padding: "10px",
+              fontSize: 16,
+            }}
+            onClick={() => handleChange(item, "page")}
+            key={item}
+          >
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
