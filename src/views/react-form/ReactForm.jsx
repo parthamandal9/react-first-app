@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./ReactForm.css";
 
 const ReactForm = () => {
@@ -13,6 +14,9 @@ const ReactForm = () => {
     console.log(
       `API Call to https://demo.com/api/product/${page}?limit=${limit}&order_by=${orderBy}&order_manner=${orderManner}`
     );
+    return () => {
+      console.log("Unmounted");
+    };
   }, [page, orderBy, orderManner, limit]);
 
   const handleChange = (e, prop) => {
@@ -109,6 +113,10 @@ const ReactForm = () => {
           </span>
         ))}
       </div>
+      <br />
+      <br />
+      <br />
+      <Link to="/">Home</Link>
     </div>
   );
 };

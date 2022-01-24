@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import ReactForm from "./components/react-form/ReactForm";
-import ReactState from "./components/react-state/ReactState";
+import ReactForm from "./views/react-form/ReactForm";
+import ReactState from "./views/react-state/ReactState";
 
 const App = () => {
   return (
