@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const items = [
   { name: "Dilshad", mob: 6201419054 },
@@ -23,6 +24,7 @@ const ReactState = (props) => {
           <li key={item.name}>Name : {item.name}</li>
         ))}
       </ul>
+      <Link to="/form">Fill Form</Link>
     </>
   );
 };

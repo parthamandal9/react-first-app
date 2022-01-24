@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import CustomInput from "../custom-input/CustomInput";
+import "./ReactForm.css";
 
 const ReactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +13,16 @@ const ReactForm = () => {
     country: "",
     profilePic: null,
   });
+  const [theme, setTheme] = useState();
+
+  useEffect(() => {
+    const date = new Date();
+    const hours = date.getHours();
+    if (hours >= 21 || hours <= 4) setTheme("dark");
+    else setTheme("light");
+  }, [formData]);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -43,6 +55,10 @@ const ReactForm = () => {
     });
   };
 
+  const changeTheme = (theme) => {
+    setTheme(theme);
+  };
+
   const handleSubmit = () => {
     console.log(formData);
     setFormData({
@@ -54,10 +70,30 @@ const ReactForm = () => {
       education: [],
       profilePic: null,
     });
+    navigate("/");
   };
 
   return (
-    <>
+    <div className={theme === "dark" ? "dark" : "light"}>
+      Theme :{" "}
+      <input
+        type="radio"
+        name="theme"
+        value="dark"
+        id="dark"
+        checked={theme === "dark"}
+        onChange={() => changeTheme("dark")}
+      />{" "}
+      <label htmlFor="dark">Dark</label>
+      <input
+        type="radio"
+        name="theme"
+        id="light"
+        value="light"
+        checked={theme === "light"}
+        onChange={() => changeTheme("light")}
+      />{" "}
+      <label htmlFor="light">Light</label>
       <h1>React Form Inputs</h1>
       <CustomInput
         name="name"
@@ -77,7 +113,6 @@ const ReactForm = () => {
         onChange={(event) => handleChange(event)}
       ></textarea>
       <p>Address : {formData.address}</p>
-
       <input
         type="radio"
         name="gender"
@@ -100,7 +135,6 @@ const ReactForm = () => {
         onChange={(event) => handleChange(event)}
       />
       <p>Gender : {formData.gender}</p>
-
       <input
         type="checkbox"
         checked={formData.education.includes("Metric")}
@@ -144,7 +178,8 @@ const ReactForm = () => {
       <p>Country : {formData.country}</p>
       <input type="file" name="profilePic" onChange={handleFile} />
       <button onClick={handleSubmit}>Submit</button>
-    </>
+      <Link to="/">Back</Link>
+    </div>
   );
 };
 
